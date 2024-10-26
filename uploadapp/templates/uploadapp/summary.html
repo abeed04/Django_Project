@@ -1,0 +1,13 @@
+<h2>File Summary</h2>
+<p>Row Count: {{ summary.row_count }}</p>
+<p>Column Count: {{ summary.column_count }}</p>
+<h3>Columns:</h3>
+<ul>
+    {% for column in summary.columns %}
+        <li>{{ column }}</li>
+    {% endfor %}
+</ul>
+<form method="post" action="{% url 'send_email' %}">
+    {% csrf_token %}
+    <button type="submit">Send Summary via Email</button>
+</form>
